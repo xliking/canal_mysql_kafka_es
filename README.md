@@ -5,6 +5,8 @@ Canal + MySQL + Kafka + Elasticsearch --- V1.0
 -----------
 
 **本项目是一个整合Canal、MySQL、Kafka和Elasticsearch的示例项目。它演示了如何使用Canal监听MySQL数据库的变化，将变化的数据发送到Kafka，然后使用Kafka Consumer消费消息，并将数据索引到Elasticsearch中。**
+
+
 项目结构
 ------------
 
@@ -68,6 +70,13 @@ Canal + MySQL + Kafka + Elasticsearch --- V1.0
 * Kafka需要配置 partition 和 replica 的数量
 * Elasticsearch需要配置索引的 mapping 和 setting
 
+
+版本计划
+----------
+* V1.0 : 实现数据监听同步
+* V1.1 : 实现数据告警，推送至飞书等
+* V1.2 : 暂无规划
+
 LICENSE
 -------
 
@@ -75,7 +84,5 @@ This project is licensed under the Apache License 2.0.
 
 贡献
 --------
-
-感谢您的贡献！
 
 如果您发现任何 bug 或者有新的需求，请提交 issue 或者 pull request。
