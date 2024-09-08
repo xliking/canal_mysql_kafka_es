@@ -1,0 +1,52 @@
+server:
+  port: 9887
+
+spring:
+  datasource:
+    hikari:
+      connection-timeout: 100000
+      idle-timeout: 100000
+      max-lifetime: 100000
+    dynamic:
+      primary: mysql_yun # 配置主数据源
+      datasource:
+        mysql_yun: # 数据源的名字，第一个数据源
+          url: jdbc:mysql://localhost:3306/ai?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=UTF-8&allowMultiQueries=true&useSSL=false&allowPublicKeyRetrieval=true
+          username: root
+          password: 123456
+          driver-class-name: com.mysql.cj.jdbc.Driver
+
+  kafka:
+    bootstrap-servers: localhost:9092
+    consumer:
+      group-id: ${app.kafka.group-id}
+      auto-offset-reset: earliest
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+
+  data:
+    redis:
+      host: localhost
+      port: 9379
+      database: 6
+    elasticsearch:
+      client:
+        rest:
+          uris: http://localhost:9200
+
+canal:
+  client:
+    host: localhost # Canal 服务运行在 localhost
+    port: 11111
+    destination: example
+    username: ""
+    password: ""
+    filter: ".*\\..*" # Subscribe to all tables
+
+app:
+  kafka:
+    topic: my-topic
+    group-id: group_id

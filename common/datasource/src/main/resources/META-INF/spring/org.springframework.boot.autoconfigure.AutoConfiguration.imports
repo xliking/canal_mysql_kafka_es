@@ -1,0 +1,2 @@
+com.easy.datasource.config.MybatisPlusConfig
+com.easy.datasource.config.MybatisPlusMetaObjectHandler

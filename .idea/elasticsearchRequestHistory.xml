@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ElasticsearchRequestHistory">
+    <option name="requestHistory">
+      <map>
+        <entry key="4856b470-f0da-4845-a7a9-cf451000a620">
+          <value>
+            <list>
+              <HistoryRequest>
+                <option name="body" value="{&#10;  &quot;from&quot;: 0,&#10;  &quot;size&quot;: 50,&#10;  &quot;query&quot;: {&#10;    &quot;match_all&quot;: {}&#10;  }&#10;}" />
+                <option name="path" value="/ai.muchi/_search" />
+              </HistoryRequest>
+              <HistoryRequest>
+                <option name="body" value="{&#10;  &quot;from&quot;: 0,&#10;  &quot;size&quot;: 50,&#10;  &quot;query&quot;: {&#10;    &quot;match_all&quot;: {}&#10;  }&#10;}" />
+                <option name="path" value="/ai.user/_search" />
+              </HistoryRequest>
+              <HistoryRequest>
+                <option name="body" value="{&#10;  &quot;from&quot;: 0,&#10;  &quot;size&quot;: 50,&#10;  &quot;query&quot;: {&#10;    &quot;match_all&quot;: {}&#10;  }&#10;}" />
+                <option name="path" value="/ai.test/_search" />
+              </HistoryRequest>
+              <HistoryRequest>
+                <option name="body" value="{&#10;  &quot;from&quot;: 0,&#10;  &quot;size&quot;: 50,&#10;  &quot;query&quot;: {&#10;    &quot;match_all&quot;: {}&#10;  }&#10;}" />
+                <option name="path" value="/ai.user/_search" />
+              </HistoryRequest>
+              <HistoryRequest>
+                <option name="body" value="{&#10;  &quot;from&quot;: 0,&#10;  &quot;size&quot;: 50,&#10;  &quot;query&quot;: {&#10;    &quot;match_all&quot;: {}&#10;  }&#10;}" />
+                <option name="path" value="/ai.test/_search" />
+              </HistoryRequest>
+              <HistoryRequest>
+                <option name="body" value="{&#10;  &quot;from&quot;: 0,&#10;  &quot;size&quot;: 50,&#10;  &quot;query&quot;: {&#10;    &quot;match_all&quot;: {}&#10;  }&#10;}" />
+                <option name="path" value="/ai.user/_search" />
+              </HistoryRequest>
+              <HistoryRequest>
+                <option name="path" value="/_index_template/metrics" />
+              </HistoryRequest>
+              <HistoryRequest>
+                <option name="path" value="/_nodes/s35SMPWtTf2rHpEEG7q0Zg" />
+              </HistoryRequest>
+              <HistoryRequest>
+                <option name="path" value="/_tasks/s35SMPWtTf2rHpEEG7q0Zg:669" />
+              </HistoryRequest>
+              <HistoryRequest>
+                <option name="path" value="/_tasks/s35SMPWtTf2rHpEEG7q0Zg:670" />
+              </HistoryRequest>
+              <HistoryRequest>
+                <option name="path" value="/_ingest/pipeline/xpack_monitoring_7" />
+              </HistoryRequest>
+              <HistoryRequest>
+                <option name="path" value="/_ingest/pipeline/xpack_monitoring_6" />
+              </HistoryRequest>
+              <HistoryRequest>
+                <option name="path" value="/_nodes/s35SMPWtTf2rHpEEG7q0Zg" />
+              </HistoryRequest>
+              <HistoryRequest>
+                <option name="path" value="/_ingest/pipeline/xpack_monitoring_7" />
+              </HistoryRequest>
+              <HistoryRequest>
+                <option name="path" value="/_ingest/pipeline/xpack_monitoring_6" />
+              </HistoryRequest>
+              <HistoryRequest>
+                <option name="path" value="/_nodes/s35SMPWtTf2rHpEEG7q0Zg" />
+              </HistoryRequest>
+            </list>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>

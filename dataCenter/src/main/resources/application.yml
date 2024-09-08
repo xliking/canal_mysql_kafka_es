@@ -1,0 +1,22 @@
+spring:
+  jpa:
+    properties:
+      hibernate:
+        jdbc:
+          time_zone: Asia/Shanghai
+  profiles:
+    active: test
+  application:
+    name: dataCenter
+  config:
+    import:
+      - optional:application-datasource.yml
+      - optional:application-web.yml
+      - optional:application-redis.yml
+mybatis-plus:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+logging:
+  level:
+    root: info

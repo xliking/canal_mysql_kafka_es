@@ -1,0 +1,2 @@
+com.easy.elasticsearch.config.ElasticsearchConfig
+com.easy.elasticsearch.service.ElasticsearchService
