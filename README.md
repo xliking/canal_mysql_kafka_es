@@ -1,4 +1,4 @@
-Canal + MySQL + Kafka + Elasticsearch --- V1.0
+Canal + MySQL + Kafka + Elasticsearch
 =====================================================
 
 项目介绍
