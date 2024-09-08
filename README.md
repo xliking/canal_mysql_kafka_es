@@ -5,7 +5,6 @@ Canal + MySQL + Kafka + Elasticsearch --- V1.0
 -----------
 
 **本项目是一个整合Canal、MySQL、Kafka和Elasticsearch的示例项目。它演示了如何使用Canal监听MySQL数据库的变化，将变化的数据发送到Kafka，然后使用Kafka Consumer消费消息，并将数据索引到Elasticsearch中。**
-
 项目结构
 ------------
 
