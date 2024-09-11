@@ -34,7 +34,7 @@ public class FieldMapperUtils {
      */
 
     public static Object mapFieldsToDocument(Class<?> clazz, Map<String, Object> data, Map<String, String> fieldMappings) throws Exception {
-        Map<Object, Object> resMap = new HashMap<>();
+        Map<String, Object> resMap = new HashMap<>();
         // 通过反射创建对象实例
         Object document = clazz.getDeclaredConstructor().newInstance();
         // 遍历字段映射

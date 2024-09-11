@@ -33,6 +33,16 @@ public final class OkHttpUtil {
     private String url;
     private Request.Builder request;
 
+
+
+    public OkHttpUtil postJson(String jsonString) {
+        RequestBody requestBody = RequestBody.create(jsonString, MediaType.parse("application/json; charset=utf-8"));
+        request = new Request.Builder()
+                .post(requestBody)
+                .url(url);
+        return this;
+    }
+
     /**
      * 初始化okHttpClient，并且允许https访问
      */

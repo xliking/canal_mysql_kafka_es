@@ -15,7 +15,6 @@ spring:
           username: root
           password: 123456
           driver-class-name: com.mysql.cj.jdbc.Driver
-
   kafka:
     bootstrap-servers: localhost:9092
     consumer:
@@ -26,7 +25,6 @@ spring:
     producer:
       key-serializer: org.apache.kafka.common.serialization.StringSerializer
       value-serializer: org.apache.kafka.common.serialization.StringSerializer
-
   data:
     redis:
       host: localhost
@@ -37,6 +35,7 @@ spring:
         rest:
           uris: http://localhost:9200
 
+# 配置 Canal
 canal:
   client:
     host: localhost # Canal 服务运行在 localhost
@@ -45,6 +44,14 @@ canal:
     username: ""
     password: ""
     filter: ".*\\..*" # Subscribe to all tables
+
+# 配置 Lark 飞书
+lark:
+#  是否启用消息推送
+  is_switch: true
+  app_id: cli_a66b74476efa5013
+  app_secret: 8s5Z0FSIqh95V4DE96QbqfX24YINKB2a
+  web_hook_url: https://open.feishu.cn/open-apis/bot/v2/hook/...
 
 app:
   kafka:

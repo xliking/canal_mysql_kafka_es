@@ -12,8 +12,9 @@ import org.springframework.data.elasticsearch.core.mapping.IndexCoordinates;
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.stereotype.Service;
 
-import java.lang.reflect.Field;
 import java.util.Map;
+
+import static com.easy.api.config.LarkProcessor.sendLarkMessage;
 
 /**
  * @author muchi
@@ -50,14 +51,24 @@ public class KafkaConsumerService {
         IndexCoordinates indexCoordinates = IndexCoordinates.of(tableName);
         if (AppConstants.INSERT_EVENT.equals(eventType) || AppConstants.UPDATE_EVENT.equals(eventType)) {
             elasticsearchOperations.save(document, indexCoordinates);
+            sendLarkMessage(AppConstants.SUCCESS_CODE,tableName,eventType,document.toString());
             log.info("Saved OR updated document: {}", document);
         } else if (AppConstants.DELETE_EVENT.equals(eventType)) {
-            Field idField = clazz.getDeclaredField("id");
-            idField.setAccessible(true);
-            String id = (String) idField.get(document);
+            String id = convertToString(data.get("id"));
             elasticsearchOperations.delete(id, indexCoordinates);
+            sendLarkMessage(AppConstants.SUCCESS_CODE,tableName,eventType,document.toString());
             log.info("Deleted document: {}", document);
+        }else {
+            sendLarkMessage(AppConstants.ERROR_CODE,tableName,eventType,document.toString());
+            log.error("Unsupported event type: {}", eventType);
         }
+    }
+
+    public String convertToString(Object value) {
+        if (value == null) {
+            throw new IllegalArgumentException("Value cannot be null.");
+        }
+        return value.toString();
     }
 
 

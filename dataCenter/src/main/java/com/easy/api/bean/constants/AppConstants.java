@@ -14,4 +14,11 @@ public final class AppConstants {
     public static final String INSERT_EVENT = "INSERT";
     public static final String UPDATE_EVENT = "UPDATE";
     public static final String DELETE_EVENT = "DELETE";
+
+
+    // Lark
+    public static final Integer ERROR_CODE = 0;
+
+    public static final Integer SUCCESS_CODE = 1;
+
 }
