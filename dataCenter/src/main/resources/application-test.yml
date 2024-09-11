@@ -51,7 +51,7 @@ lark:
   is_switch: true
   app_id: cli_a66b74476efa5013
   app_secret: 8s5Z0FSIqh95V4DE96QbqfX24YINKB2a
-  web_hook_url: https://open.feishu.cn/open-apis/bot/v2/hook/...
+  web_hook_url: https://open.feishu.cn/open-apis/bot/v2/hook/38710539-4374-4f36-a1f0-249ced90c639
 
 app:
   kafka:
