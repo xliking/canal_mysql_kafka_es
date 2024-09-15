@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>消息列表展示</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #282c34;
+            color: #fff;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            overflow: hidden;
+            display: flex;
+            height: 100vh;
+        }
+
+        .container {
+            width: 50%;
+            height: 100%;
+            overflow-y: auto;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            margin: 10px;
+            padding: 30px;
+            cursor: pointer;
+            transition: transform 0.2s ease-in-out;
+            list-style-type: none;
+            border-radius: 10px;
+            background-color: rgba(255, 255, 255, 0.1); /* 默认背景色 */
+            color: #fff; /* 文字颜色 */
+        }
+
+        .left li {
+            background-image: linear-gradient(to right, #da3b5f, #ff4b2b88); /* 红色渐变 */
+        }
+
+        .right li {
+            background-image: linear-gradient(to right, #42c3c4, #fdbb2d88); /* 绿色渐变 */
+        }
+
+        li:hover {
+            transform: scale(1.03);
+        }
+
+        /* 隐藏滚动条 */
+        .container::-webkit-scrollbar {
+            display: none;
+        }
+
+        .container {
+            -ms-overflow-style: none;  /* IE 和 Edge */
+            scrollbar-width: none;  /* Firefox */
+        }
+
+        /* 竖线分隔 */
+        .separator {
+            background-color: #ffffff;
+            width: 2px;
+            opacity: 0.5;
+        }
+
+
+        /* 模态框样式 */
+        .modal {
+            display: none; /* 默认隐藏 */
+            position: fixed; /* 固定定位 */
+            z-index: 1; /* 置于顶层 */
+            left: 0;
+            top: 0;
+            width: 100%; /* 宽度100% */
+            height: 100%; /* 高度100% */
+            overflow: auto; /* 启用滚动 */
+            background-color: rgb(0,0,0); /* 背景色 */
+            background-color: rgba(0,0,0,0.4); /* 背景色+透明度 */
+            padding-top: 60px;
+        }
+
+        .modal-content {
+            background-color: #fefefe;
+            margin: 5% auto; /* 5% 从上边和自动水平 */
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%; /* 宽度80% */
+            color: black; /* 文本颜色 */
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container left">
+    <ul id="errorList">
+        <!-- 错误列表 -->
+    </ul>
+</div>
+
+<div class="separator"></div>
+
+<div class="container right">
+    <ul id="successList">
+        <!-- 成功列表 -->
+    </ul>
+</div>
+
+<div id="myModal" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <p id="modalText">这里显示消息详情...</p>
+    </div>
+</div>
+
+<script src="/js/config.js"></script>
+<script>
+
+    // 获取模态框
+    var modal = document.getElementById("myModal");
+
+    // 获取关闭按钮
+    var span = document.getElementsByClassName("close")[0];
+
+    // 当用户点击关闭按钮时，关闭模态框
+    span.onclick = function() {
+        modal.style.display = "none";
+    }
+
+    // 点击窗口外的地方也能关闭模态框
+    window.onclick = function(event) {
+        if (event.target === modal) {
+            modal.style.display = "none";
+        }
+    }
+
+    // 请求数据并填充列表
+    fetch(`${baseUrl}/msg/list`)
+        .then(response => response.json())
+        .then(data => {
+            const { success, error } = data.data;
+            // 填充错误列表
+            error.forEach((item, index) => {
+                const listItem = document.createElement("li");
+                listItem.innerText = `错误项 ${index + 1}`;
+                listItem.onclick = function() {
+                    document.getElementById("modalText").innerText = `详情信息：错误项 ${index + 1}`;
+                    modal.style.display = "block";
+                };
+                document.getElementById("errorList").appendChild(listItem);
+            });
+            // 填充成功列表
+            success.forEach((item, index) => {
+                const listItem = document.createElement("li");
+                listItem.innerText = `成功项 ${index + 1}`;
+                listItem.onclick = function() {
+                    document.getElementById("modalText").innerText = `详情信息：成功项 ${index + 1}`;
+                    modal.style.display = "block";
+                };
+                document.getElementById("successList").appendChild(listItem);
+            });
+        })
+        .catch(error => console.log('Error:', error));
+</script>
+
+</body>
+</html>
